@@ -1,9 +1,20 @@
 {% extends 'activities/base.html' %}
 
 {% block head %}
-    <title>Home</title>
+    <title>Home - from home.html</title>
 {% endblock %}
 
 {% block content %}
-    <h1>Testing</h1>
+    
+
+    {% for i in posts %}
+        <article>
+            <h2>{{ i.title }}</h2>
+            <br>
+            <p>{{ i.text }}</p>
+            <br>
+            <p>{{ i.made_by.phone_number }}</p>
+        </article>
+    {% endfor %}
+
 {% endblock %}
