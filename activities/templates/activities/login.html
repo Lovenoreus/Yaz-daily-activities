@@ -1,18 +1,18 @@
 {% extends 'activities/base.html' %}
 
 {% block head %}
-    <title>Home - from home.html</title>
+    <title>Log in</title>
 {% endblock %}
 
 {% block content %}
     {{ error }}
     <h1>Testing</h1>
-    <form method="POST" >
+    <form method="POST">
         {% csrf_token %} 
-        {{ form }}
+        Username Or Email: <input name="emailorusername">
         <br>
-        Email: <input name="email">
+        Password: <input name="password">
         <br>
-        <button type="submit">Sign Up</button>
+        <button type="submit">Log in</button>
     </form>
 {% endblock %}
