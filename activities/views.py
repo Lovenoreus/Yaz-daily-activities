@@ -62,4 +62,8 @@ def login_user(request):
         else:
             login(request, user)
             return redirect('home')
-    
+
+def logout_user(request):
+    if request.method == "POST":
+        logout(request)
+        return redirect("home")
