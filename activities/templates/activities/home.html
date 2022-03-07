@@ -1,86 +1,25 @@
 {% extends 'activities/base.html' %}
-
+{% load static %}
 {% block head %}
     <title>Home - from home.html</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-    />
-    
-    
+    <link rel="stylesheet" href="{% static 'css/activities.css' %}">
+    <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block content %}
-<section class="p-5">
-    <div class="container">
-      <div class="row text-center g-4">
-        <div class="col-md">
-          <div class="card bg-dark text-light">
-            <div class="card-body text-center">
-              
-              <h3 class="card-title mb-3">Virtual</h3>
-              <p class="card-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Iure, quas quidem possimus dolorum esse eligendi?
-              </p>
-              <a href="#" class="btn btn-primary">Read More</a>
+    <main class="container">
+        <div class="row">
+            <div class="col">
+                {% for post in posts %}
+                    <article class="post">
+                        <time class="date">
+                            {{ post.posted }}
+                        </time>
+                        <h2><a href="">{{ post.title }}</a></h2>
+                        <p>{{ post.text|linebreaksbr }}</p>
+                    </article>
+                {% endfor %}
             </div>
-          </div>
         </div>
-        <div class="col-md">
-          <div class="card bg-secondary text-light">
-            <div class="card-body text-center">
-              
-              <h3 class="card-title mb-3">Hybrid</h3>
-              <p class="card-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Iure, quas quidem possimus dolorum esse eligendi?
-              </p>
-              <a href="#" class="btn btn-dark">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-          <div class="card bg-dark text-light">
-            <div class="card-body text-center">
-              
-              <h3 class="card-title mb-3">In Person</h3>
-              <p class="card-text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                Iure, quas quidem possimus dolorum esse eligendi?
-              </p>
-              <a href="#" class="btn btn-primary">Read More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md">
-            <div class="card bg-dark text-light">
-              <div class="card-body text-center">
-                
-                <h3 class="card-title mb-3">In Person</h3>
-                <p class="card-text">
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                  Iure, quas quidem possimus dolorum esse eligendi?
-                </p>
-                <a href="#" class="btn btn-primary">Read More</a>
-              </div>
-            </div>
-          </div>
-      </div>
-      <div class="col-md">
-        <div class="card bg-dark text-light">
-          <div class="card-body text-center">
-            
-            <h3 class="card-title mb-3">In Person</h3>
-            <p class="card-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Iure, quas quidem possimus dolorum esse eligendi?
-            </p>
-            <a href="#" class="btn btn-primary">Read More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+    </main>
 {% endblock %}
