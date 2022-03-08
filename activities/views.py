@@ -1,3 +1,4 @@
+# some comment
 from django.shortcuts import render, redirect
 from .models import Post, CustomUser
 from django.contrib.auth.forms import UserCreationForm
