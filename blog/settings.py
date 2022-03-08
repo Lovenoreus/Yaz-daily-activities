@@ -55,8 +55,9 @@ ROOT_URLCONF = 'blog.urls'
 
 TEMPLATES = [
     {
+
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [str(BASE_DIR.joinpath('templates'))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,3 +132,5 @@ STATICFILES_DIRS =  [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'activities.CustomUser'
+
+LOGIN_REDIRECT_URL = '/activities/home'
