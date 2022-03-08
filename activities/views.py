@@ -9,7 +9,7 @@ import re
 # Create your views here.
 def home(request):
     posts = Post.objects.all()
-    list1 = [2]
+    list1 = [2,3]
     return render(request, 'activities/home.html', {'posts': posts}) 
 
 def about(request):
