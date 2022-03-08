@@ -5,10 +5,11 @@ from django.contrib.auth import login ,authenticate, logout
 from django.db import IntegrityError
 from django.core.exceptions import ObjectDoesNotExist
 import re
-
+#Hello
 # Create your views here.
 def home(request):
     posts = Post.objects.all()
+    list1 = [2]
     return render(request, 'activities/home.html', {'posts': posts}) 
 
 def about(request):
