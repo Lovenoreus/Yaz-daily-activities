@@ -6,6 +6,8 @@ from django.contrib.auth import login ,authenticate, logout
 from django.db import IntegrityError
 from django.core.exceptions import ObjectDoesNotExist
 import re
+from .forms import PostForm
+from datetime import timezone, date, datetime
 
 # Create your views here.
 def home(request):
@@ -69,3 +71,21 @@ def logout_user(request):
     if request.method == "POST":
         logout(request)
         return redirect("home")
+
+def create(request):
+    if request.method == "GET":
+        if request.user.is_authenticated == False:
+            return redirect("home")
+        form = PostForm()
+        context = {'form': form}
+        return render(request, 'activities/create.html', context)
+    elif request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.posted = datetime.now()
+            post.made_by = request.user
+            post.save()
+            return redirect("home")
+        
+            
