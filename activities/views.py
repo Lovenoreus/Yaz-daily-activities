@@ -11,7 +11,7 @@ from datetime import timezone, date, datetime
 
 # Create your views here.
 def home(request):
-    posts = Post.objects.all()
+    posts = Post.objects.all().order_by('-posted')
     list1 = [2,3]
     return render(request, 'activities/home.html', {'posts': posts}) 
 

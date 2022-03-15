@@ -7,6 +7,30 @@
 {% endblock %}
 
 {% block content %}
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Text</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for post in posts%}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td><p class="lead">{{post.title}}</p></td>
+      <td><p class="lead">{{post.text}}</p></td>
+      <td><p class="lead">{{post.posted}}</p></td>
+    </tr>
+    {% endfor %}
+ 
+  </tbody>
+</table>
+
+{% comment %}    
     <main class="container">
         <div class="row">
             <div class="col">
@@ -21,5 +45,5 @@
                 {% endfor %}
             </div>
         </div>
-    </main>
+    </main> {% endcomment %}
 {% endblock %}
