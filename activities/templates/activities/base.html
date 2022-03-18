@@ -13,18 +13,31 @@
   </head>
   <body>
   
-
-    {% if user.is_authenticated %}
-    Logged in as {{ user.username }}
-    <br>
-    <form action="{% url 'logout' %}" method="POST">
-    {% csrf_token %}
-        <button type="submit">log out</button>
-    </form>
-    {% else %}
-    <a href="{% url 'signup' %}">SIGN UP</a>
-    <a href="{% url 'login' %}">LOGIN</a>
-    {% endif %}
+    <div class="container">
+      <div class="row">
+        {% if user.is_authenticated %}
+        <center><p>Logged in as <u>{{ user.username }}</u></p></center>
+      </div>
+      <div class="row">
+        <form align="center" action="{% url 'logout' %}" method="POST">
+          {% csrf_token %}
+        
+          <button type="submit">log out</button>
+        </form>
+       
+      </div>
+      {% else %}
+        
+        <div class="row">
+          <center><a href="{% url 'signup' %}">SIGN UP</a></center>   
+        </div>
+        <div class="row">
+          <center><a href="{% url 'login' %}">LOGIN</a></center>
+        </div>
+      {% endif %}
+      
+    <div>
+      
 
     {% block content%}{% endblock %}
 
